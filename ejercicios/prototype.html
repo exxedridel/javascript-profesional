@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+      // - - - - - * Un objeto comun y corriente * - - - - -
+
+      // const eldenRing = {
+      //    name: "Elden Ring",
+      // };
+
+      // eldenRing.saludar = function() {
+      //    console.log(`Hola soy ${this.name}`);
+      // }
+
+      // eldenRing.saludar();
+
+      // const dotita2 = {
+      //    name: "dotita2",
+      // };
+
+      // dotita2.saludar = function() {
+      //    console.log(`Hola soy ${this.name}`);
+      // }
+
+      // dotita2.saludar();
+
+      // - - - - - * Seamos un poco mas eficientes * - - - - -
+
+      // function Game(name) {
+      //   const game = {
+      //     name: name,
+      //   };
+
+      //   game.saludar = function () {
+      //     console.log(`Hola soy ${this.name}`);
+      //   };
+
+      //   return game
+      // }
+
+      // const eldenRing = Game("Elden Ring")
+      // eldenRing.saludar();
+
+      // const dotita2 = Game("Dotita 2")
+      // dotita2.saludar();
+
+      // - - - - - * Seamos mas eficientes * - - - - -
+      // const gameMethods = {
+      //    saludar: function () {
+      //     console.log(`Hola soy ${this.name}`);
+      //   },
+      // };
+
+      // function Game(name) {
+      //   const game = {
+      //     name: name,
+      //   };
+      //   game.saludar = gameMethods.saludar;
+      //   return game;
+      // }
+
+      // const eldenRing = Game("Elden Ring");
+      // eldenRing.saludar();
+
+      // const dotita2 = Game("Dotita 2");
+      // dotita2.saludar();
+
+      // - - - - -  * Object.create / const nuevoObjeto = Object.create(objeto) * - - - - -
+      // already has prototype inheritance
+      // const gameMethods = {
+      //    saludar: function () {
+      //     console.log(`Hola soy el juego ${this.name}`);
+      //   },
+      // };
+
+      // function Game(name) {
+      //   const game = Object.create(gameMethods)
+      //   game.name = name;
+      //   return game;
+      // }
+
+      // const eldenRing = Game("Elden Ring");
+      // eldenRing.saludar();
+
+      // const dotita2 = Game("Dotita 2");
+      // dotita2.saludar();
+
+      // Los metodos de game dentro de Game
+
+      // function Game(name) {
+      //   const game = Object.create(Game.prototype);
+      //   game.name = name;
+      //   return game;
+      // }
+
+      // Game.prototype.saludar = function () {
+      //   console.log(`Hola soy el juego ${this.name}`);
+      // };
+
+      // const eldenRing = Game("Elden Ring");
+      // eldenRing.saludar();
+
+      // const dotita2 = Game("Dotita 2");
+      // dotita2.saludar();
+
+      // - - - - - * new es (syntactic sugar) para llevar Game.prototype al objeto
+      function Game(name) {
+      //   this = Object.create(Game.prototype);
+        this.name = name;
+        // return this;
+      }
+
+      Game.prototype.saludar = function () {
+        console.log(`Juego NEW ${this.name}`);
+      };
+
+      const eldenRing = new Game("Elden Ring");
+      eldenRing.saludar();
+
+      const dotita2 = new Game("Dotita 2");
+      dotita2.saludar();
+
+    </script>
+  </body>
+</html>
